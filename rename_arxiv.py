@@ -91,12 +91,15 @@ def build_author_string(authors: list[str]) -> str:
 
     1 author  -> LastName
     2 authors -> LastName1_LastName2
-    3+ authors -> LastName1_et al
+    3 authors -> LastName1_LastName2_LastName3
+    4+ authors -> LastName1_et al
     """
     if len(authors) == 1:
         return last_name(authors[0])
     if len(authors) == 2:
         return f"{last_name(authors[0])}_{last_name(authors[1])}"
+    if len(authors) == 3:
+        return f"{last_name(authors[0])}_{last_name(authors[1])}_{last_name(authors[2])}"
     return f"{last_name(authors[0])}_et al"
 
 def sanitize(text: str) -> str:
