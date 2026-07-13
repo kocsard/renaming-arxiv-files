@@ -90,14 +90,14 @@ def build_author_string(authors: list[str]) -> str:
     """Format the author part of the filename.
 
     1 author  -> LastName
-    2 authors -> LastName1, LastName2
-    3+ authors -> LastName1 et al.
+    2 authors -> LastName1_LastName2
+    3+ authors -> LastName1_et al
     """
     if len(authors) == 1:
         return last_name(authors[0])
     if len(authors) == 2:
-        return f"{last_name(authors[0])}, {last_name(authors[1])}"
-    return f"{last_name(authors[0])} et al."
+        return f"{last_name(authors[0])}_{last_name(authors[1])}"
+    return f"{last_name(authors[0])}_et al"
 
 def sanitize(text: str) -> str:
     """Remove or replace characters that are problematic in filenames."""
